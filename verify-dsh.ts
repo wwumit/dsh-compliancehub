@@ -1,9 +1,9 @@
 /**
- * DSH 实机验证：把 dsh-skill-hub 注册进真实 SkillRegistry，
+ * DSH 实机验证：把 dsh-compliancehub 注册进真实 SkillRegistry，
  * 验证 ctx.skills.list() 返回线上 catalog 的 20 个技能、get() 能拉取 SKILL.md。
  *
  * 运行（依赖 DSH 仓库的 tsconfig paths）：
- *   cd dsh-skill-hub && ln -s /Users/wuwei/deepseek-harness/node_modules node_modules
+ *   cd dsh-compliancehub && ln -s /Users/wuwei/deepseek-harness/node_modules node_modules
  *   node_modules/.bin/tsx --tsconfig /Users/wuwei/deepseek-harness/tsconfig.json verify-dsh.ts
  */
 import { Context } from '@deepseek-ai/cordis'

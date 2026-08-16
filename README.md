@@ -1,4 +1,4 @@
-# dsh-skill-hub
+# dsh-compliancehub
 
 Remote skill provider for [DeepSeek Harness](https://github.com/deepseek-ai/deepseek-harness):
 install skills from a JSON catalog through the standard `ctx.skills` registry —
@@ -12,7 +12,7 @@ no manual folder copying.
 ## Install
 
 ```sh
-npm install @wwumit/dsh-skill-hub
+npm install @wwumit/dsh-compliancehub
 # peer deps: @deepseek-ai/cordis, @deepseek-ai/dsh-skill
 ```
 
@@ -20,7 +20,7 @@ npm install @wwumit/dsh-skill-hub
 
 ```ts
 import { Context } from '@deepseek-ai/cordis'
-import * as skillHub from '@wwumit/dsh-skill-hub'
+import * as skillHub from '@wwumit/dsh-compliancehub'
 
 export function apply(ctx: Context) {
   ctx.plugin(skillHub, {

@@ -1,5 +1,5 @@
 /**
- * Catalog schema and fetching for dsh-skill-hub.
+ * Catalog schema and fetching for dsh-compliancehub.
  *
  * The catalog is a small JSON document (see catalog/build-catalog.mjs in the
  * wwumit skill workspace) listing curated skills with their owning repo and
