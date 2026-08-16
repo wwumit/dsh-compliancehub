@@ -1,0 +1,31 @@
+{
+  "name": "@wwumit/dsh-skill-hub",
+  "version": "0.1.0",
+  "description": "Remote skill provider for DeepSeek Harness: install skills from a JSON catalog via ctx.skills (list/get).",
+  "type": "module",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./lib/index.d.ts",
+      "default": "./lib/index.js"
+    }
+  },
+  "files": ["lib"],
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "vitest run"
+  },
+  "keywords": ["dsh-plugin", "deepseek-harness", "agent-skills", "skills", "cordis"],
+  "license": "MIT",
+  "peerDependencies": {
+    "@deepseek-ai/cordis": ">=3.0.0",
+    "@deepseek-ai/dsh-skill": ">=0.1.0"
+  },
+  "devDependencies": {
+    "@deepseek-ai/cordis": "latest",
+    "@deepseek-ai/dsh-skill": "latest",
+    "typescript": "^5.6.0",
+    "vitest": "^3.0.0"
+  }
+}
