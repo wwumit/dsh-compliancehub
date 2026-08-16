@@ -42,21 +42,67 @@ model can invoke them via the built-in `skill` tool.
 ```json
 {
   "schemaVersion": 1,
+  "disclosureSchemaVersion": "0.2",
   "updatedAt": "2026-08-16T00:00:00Z",
   "skills": [
     {
       "name": "ccpa-check",
-      "description": "CCPA/CPRA compliance check … Use when …",
+      "fullName": "wwumit/skills-compliance-intl",
+      "skillFullName": "wwumit/skills-compliance-intl/skills/ccpa-check",
+      "description": "CCPA/CPRA compliance check …",
       "repo": "wwumit/skills-compliance-intl",
       "version": "2.2.4",
+      "disclosure": { "cloud": true, "network": ["https://compliancehub.cn"], "offlineMode": true },
       "files": ["SKILL.md", "scripts/ccpa-check.py"]
     }
+  ],
+  "repos": [
+    { "fullName": "wwumit/skills-compliance-intl", "skillCount": 9,
+      "cloudSkills": ["ccpa-check", "coppa-check", "gdpr-check", "hipaa-check"] }
   ]
 }
 ```
 
 Generate a catalog from a skill workspace with the included
 `catalog/build-catalog.mjs` script (curated via `catalog/curated.json`).
+
+
+## Verified (DSH 实机验证)
+
+`verify-dsh.ts` 在真实 DSH 运行时验证通过（SkillRegistry + provider 注册）：
+
+```
+✅ ctx.skills.list() → 21 个技能（provider 层合并后）
+✅ ctx.skills.get('ccpa-check') → 正文 {n} 字节
+```
+
+- 验证方式：注册 `ctx.skills.registerProvider` → 真实 `list()`/`get()` 调用线上 catalog
+- 结果随版本演进记录在 CHANGELOG.md；目录收录方可用此作为"含实测结果"证据
+
+## Disclosure (DISCLOSURE v0.2 开放数据层)
+
+catalog 提供**双颗粒度披露**（市场/目录构建期单请求抓取消费）：
+
+```json
+{
+  "disclosureSchemaVersion": "0.2",
+  "skills": [
+    { "name": "ccpa-check", "fullName": "wwumit/skills-compliance-intl",
+      "skillFullName": "wwumit/skills-compliance-intl/skills/ccpa-check",
+      "disclosure": { "cloud": true, "network": ["https://compliancehub.cn"],
+        "offlineMode": true, "apiKeys": [{"env": "COMPLIANCEHUB_API_KEY", "storage": "file-0600"}],
+        "jurisdiction": ["US-CA"], "retention": "session" } }
+  ],
+  "repos": [
+    { "fullName": "wwumit/skills-compliance-intl", "skillCount": 9,
+      "cloudSkills": ["ccpa-check", "coppa-check", "gdpr-check", "hipaa-check"] }
+  ]
+}
+```
+
+- 21 个精选技能全部披露：4 个云端评分（compliancehub.cn）+ 17 个纯本地（cloud:false）
+- 声明源 = SKILL.md frontmatter（snake_case）；聚合源 = catalog.json（camelCase）；构建脚本 `build-catalog.mjs` 可复现
+- 披露检查由 `skill-compliance` v1.4.0 自动执行（D1/D3/D4 完整性 + 声明-代码一致性 + 宿主依赖）
 
 ## Development
 
