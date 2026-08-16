@@ -1,0 +1,7 @@
+# dsh-skill-hub bundle patch — 注册远程技能 provider 插件
+# 形态对齐官方 publish.zh.md（bundle manifest + cordis.patch.yml）与
+# 市场 STANDARD.md §2（dsh.bundle.patch 声明）以及 dshbase 目录收录门槛
+# （仓库公开 + bundle 清单 + dsh-plugin topic）。
+- insert:
+    - id: dsh-skill-hub
+      name: '@wwumit/dsh-skill-hub'
