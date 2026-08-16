@@ -1,3 +1,8 @@
+<!-- wwumit brand header: governance-driven AI skills ecosystem -->
+<p align="center"><b>wwumit</b> · 治理驱动的 AI 技能生态 — 规则 → 检查 → 评分 → 报告</p>
+<p align="center">产品线：合规（compliancehub）· 股票 · 工具 · 数据层 <a href="https://github.com/wwumit/skills-catalog">catalog</a></p>
+<hr>
+
 # dsh-compliancehub
 
 Remote skill provider for [DeepSeek Harness](https://github.com/deepseek-ai/deepseek-harness):
