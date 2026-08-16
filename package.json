@@ -18,6 +18,10 @@
   },
   "keywords": ["dsh-plugin", "deepseek-harness", "agent-skills", "skills", "cordis"],
   "license": "MIT",
+  "dsh": {
+    "plugin": true,
+    "kind": "server"
+  },
   "peerDependencies": {
     "@deepseek-ai/cordis": ">=3.0.0",
     "@deepseek-ai/dsh-skill": ">=0.1.0"
