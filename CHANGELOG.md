@@ -1,5 +1,9 @@
 # CHANGELOG
 
+
+## 1.1.1 (2026-08-17)
+
+- fix peerDeps: @deepseek-ai/dsh-skill >=0.1.0-rc.6 (npm 只有 rc 版本，>=0.1.0 装不上)
 ## 1.1.0 (2026-08-17)
 
 - **聚焦**：dsh-compliancehub 只提供跨境合规技能线（9 个：CCPA/GDPR/HIPAA/COPPA × check/guard + ccpa-compliance）
