@@ -23,10 +23,17 @@ export {
 } from './catalog.js'
 
 /** Plugin configuration, forwarded to HubProvider. */
-export interface Config extends HubProviderConfig {}
+export interface Config extends Omit<HubProviderConfig, 'catalogUrl'> {
+  /** Catalog JSON URL. 缺省指向线级 catalog-compliance.json（跨境合规 9 技能）。 */
+  catalogUrl?: string
+}
+
+const DEFAULT_CATALOG_URL = 'https://wwumit.github.io/skills-catalog/catalog-compliance.json'
 
 export function apply(ctx: Context, config: Config) {
+  // 默认只提供跨境合规线（9 个技能）；显式配置 catalogUrl 可覆盖（如指向全量 catalog.json）
+  const cfg: HubProviderConfig = { ...config, catalogUrl: config.catalogUrl ?? DEFAULT_CATALOG_URL }
   ctx.skills.registerProvider(
-    (_control: SkillProviderControl) => new HubProvider(config),
+    (_control: SkillProviderControl) => new HubProvider(cfg),
   )
 }

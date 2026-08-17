@@ -1,7 +1,7 @@
 {
   "name": "@wwumit/dsh-compliancehub",
   "version": "1.0.0",
-  "description": "Compliance skill hub provider for DeepSeek Harness: install compliance skills (CCPA/GDPR/COPPA/HIPAA + finance/tools) from a JSON catalog via ctx.skills (list/get), with DISCLOSURE v0.2 open-data-layer disclosure.",
+  "description": "Compliance skill hub provider for DeepSeek Harness: install cross-border compliance skills (CCPA/GDPR/COPPA/HIPAA x check/guard/compliance, 9 skills) from a line-level JSON catalog via ctx.skills (list/get), with DISCLOSURE v0.2 open-data-layer disclosure.",
   "type": "module",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",

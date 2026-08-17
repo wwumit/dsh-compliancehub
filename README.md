@@ -5,9 +5,15 @@
 
 # dsh-compliancehub
 
+**跨境合规技能专家组** —— 装这个插件，得到一套可核验的跨境合规技能。
+
 Remote skill provider for [DeepSeek Harness](https://github.com/deepseek-ai/deepseek-harness):
 install skills from a JSON catalog through the standard `ctx.skills` registry —
 no manual folder copying.
+
+本插件**只提供跨境合规线（9 个技能）**：CCPA/GDPR/HIPAA/COPPA 的 check/guard 与 ccpa-compliance。
+股票、数据分析、插件工具等其他技能线**不属于本插件**（详见 [wwumit 技能生态](https://github.com/wwumit/skills-catalog)）。
+默认目录为线级 `catalog-compliance.json`，主目录 `catalog.json` 仍为全量登记层（开放数据层），保持不变。
 
 - `list()` — fetch + validate a curated catalog, expose its skills to the registry
 - `get()` — fetch the `SKILL.md` body on demand from the owning repo
@@ -29,7 +35,7 @@ import * as skillHub from '@wwumit/dsh-compliancehub'
 
 export function apply(ctx: Context) {
   ctx.plugin(skillHub, {
-    catalogUrl: 'https://wwumit.github.io/skills-catalog/catalog.json',
+    catalogUrl: 'https://wwumit.github.io/skills-catalog/catalog-compliance.json', // 默认即此（跨境合规线）
     // providerName: 'hub'     // unique name on ctx.skills
     // rank: 250               // duplicate-name resolution (lower wins)
     // requestTimeoutMs: 10000
@@ -77,7 +83,7 @@ Generate a catalog from a skill workspace with the included
 `verify-dsh.ts` 在真实 DSH 运行时验证通过（SkillRegistry + provider 注册）：
 
 ```
-✅ ctx.skills.list() → 21 个技能（provider 层合并后）
+✅ ctx.skills.list() → 9 个跨境合规技能（线级 catalog-compliance.json）
 ✅ ctx.skills.get('ccpa-check') → 正文 {n} 字节
 ```
 
@@ -110,7 +116,7 @@ catalog 提供**双颗粒度披露**（市场/目录构建期单请求抓取消�
 }
 ```
 
-- 21 个精选技能全部披露：4 个云端评分（compliancehub.cn）+ 17 个纯本地（cloud:false）
+- 线级目录 9 个跨境合规技能全部披露：4 个云端评分（compliancehub.cn）+ 5 个纯本地（cloud:false）
 - 声明源 = SKILL.md frontmatter（snake_case）；聚合源 = catalog.json（camelCase）；构建脚本 `build-catalog.mjs` 可复现
 - 披露检查由 `skill-compliance` v1.4.0 自动执行（D1/D3/D4 完整性 + 声明-代码一致性 + 宿主依赖）
 
