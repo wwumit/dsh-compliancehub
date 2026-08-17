@@ -84,6 +84,11 @@ Generate a catalog from a skill workspace with the included
 - 验证方式：注册 `ctx.skills.registerProvider` → 真实 `list()`/`get()` 调用线上 catalog
 - 结果随版本演进记录在 CHANGELOG.md；目录收录方可用此作为"含实测结果"证据
 
+## Listed on dshbase
+
+已收录于 [dshbase 插件目录](https://dshbase.com/plugins/dsh-compliancehub/)（分类：Developer）。
+安装：`dsh plugin add @wwumit/dsh-compliancehub`（兼容 dsh 0.1.0-rc.6）。
+
 ## Disclosure (DISCLOSURE v0.2 开放数据层)
 
 catalog 提供**双颗粒度披露**（市场/目录构建期单请求抓取消费）：
