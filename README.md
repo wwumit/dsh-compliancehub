@@ -4,6 +4,11 @@
 <hr>
 
 # dsh-compliancehub
+<p align="center">
+  <img src="https://compliancehub.cn/badge/package/@wwumit/dsh-compliancehub" alt="CHA2A 认证" title="CHA2A 认证徽章（did:cha2a:@wwumit/dsh-compliancehub）"> ·
+  <a href="https://compliancehub.cn/store/">dshlib 图书馆</a> 收录 · <a href="https://compliancehub.cn/store/scan/">安全扫描报告</a>
+</p>
+
 
 **跨境合规技能专家组** —— 装这个插件，得到一套可核验的跨境合规技能。
 
